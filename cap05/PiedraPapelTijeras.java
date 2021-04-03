@@ -39,23 +39,35 @@ public class PiedraPapelTijeras {
 
 		// Jugada del ordenador
 		int eleccionPC = (int)(Math.random() * JUEGO.length);
-		System.out.println("*** Ordenador " + JUEGO[eleccionPC]);
 
 		// Jugada del usuario
 		String sEleccionUsuario = s.next();
-		System.out.println("*** Usuario " + sEleccionUsuario);
 
 		// Interpretación de la jugada del usuario
 		int eleccionUsuario = convertir(sEleccionUsuario);
-		System.out.println("*** Interpretación " + eleccionUsuario);
 		if (eleccionUsuario == ERROR_NO_ENCONTRADA) {
 			System.err.println(MSJ_ERROR_NO_ENCONTRADA);
 		}
 
 		// Calcular el ganador de la jugada
 		int resultado = usuarioGana(eleccionPC, eleccionUsuario);
-		System.out.println("*** Resultado: " + resultado);
 
+		// Mostar el resultado de la jugada
+		switch (resultado) {
+			case GANAS:
+				System.out.println("¡Enhorabuena! Tu " 
+					+ JUEGO[eleccionUsuario] + " gana a " 
+					+ JUEGO[eleccionPC]);
+				break;
+			case PIERDES:
+				System.out.println("¡Lo siento! Tu " 
+					+ JUEGO[eleccionUsuario] + " pierde ante " 
+					+ JUEGO[eleccionPC]);
+				break;
+			case EMPATE:
+				System.out.println("¡Empate a " + JUEGO[eleccionPC] + "!");
+				break;
+		}
 		// cerramos lo que abrimos
 		s.close();
 	}
