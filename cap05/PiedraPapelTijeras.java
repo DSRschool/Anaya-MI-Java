@@ -10,6 +10,8 @@ public class PiedraPapelTijeras {
 	private static final String TIJERAS = "T";
 	private static final String SALIR = "S";
 
+	private static final String[] JUEGO = {PIEDRA, PAPEL, TIJERAS};
+
 	// Mensajes al usuario
 	private static final String BIENVENIDA = 
 		"¡Bienvenido al juego Piedra-papel-tijeras!";
@@ -21,5 +23,9 @@ public class PiedraPapelTijeras {
 		// Instrucciones
 		System.out.println(BIENVENIDA);
 		System.out.println(PEDIR_JUGADA);
+
+		// Jugada del ordenador
+		int eleccionPC = (int)(Math.random() * JUEGO.length);
+		System.out.println("*** " + JUEGO[eleccionPC]);
 	}
 }
