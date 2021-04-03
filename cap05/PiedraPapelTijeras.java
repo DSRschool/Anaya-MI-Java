@@ -4,6 +4,8 @@
  * y decidir quien ha ganado.
  */
 
+import java.util.Scanner;
+
 public class PiedraPapelTijeras {
 	private static final String PIEDRA = "P";
 	private static final String PAPEL = "L";
@@ -20,6 +22,9 @@ public class PiedraPapelTijeras {
 		+ TIJERAS + " (tijeras) o " + SALIR + " (salir)";
 
 	public static void main(String[] args) {
+		// abrimos un scanner para leer la entrada del usuario
+		Scanner s = new Scanner(System.in);
+
 		// Instrucciones
 		System.out.println(BIENVENIDA);
 		System.out.println(PEDIR_JUGADA);
@@ -27,5 +32,12 @@ public class PiedraPapelTijeras {
 		// Jugada del ordenador
 		int eleccionPC = (int)(Math.random() * JUEGO.length);
 		System.out.println("*** " + JUEGO[eleccionPC]);
+
+		// Jugada del usuario
+		String sEleccionUsuario = s.next();
+		System.out.println("*** " + sEleccionUsuario);
+
+		// cerramos lo que abrimos
+		s.close();
 	}
 }
