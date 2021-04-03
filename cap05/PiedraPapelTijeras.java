@@ -14,6 +14,10 @@ public class PiedraPapelTijeras {
 
 	private static final String[] JUEGO = {PIEDRA, PAPEL, TIJERAS};
 
+	private static final int EMPATE = 0;
+	private static final int GANAS = 1;
+	private static final int PIERDES = 2;
+
 	private static final int ERROR_NO_ENCONTRADA = -1;
 
 	// Mensajes al usuario
@@ -35,18 +39,22 @@ public class PiedraPapelTijeras {
 
 		// Jugada del ordenador
 		int eleccionPC = (int)(Math.random() * JUEGO.length);
-		System.out.println("*** " + JUEGO[eleccionPC]);
+		System.out.println("*** Ordenador " + JUEGO[eleccionPC]);
 
 		// Jugada del usuario
 		String sEleccionUsuario = s.next();
-		System.out.println("*** " + sEleccionUsuario);
+		System.out.println("*** Usuario " + sEleccionUsuario);
 
 		// Interpretación de la jugada del usuario
 		int eleccionUsuario = convertir(sEleccionUsuario);
-		System.out.println("*** " + eleccionUsuario);
+		System.out.println("*** Interpretación " + eleccionUsuario);
 		if (eleccionUsuario == ERROR_NO_ENCONTRADA) {
 			System.err.println(MSJ_ERROR_NO_ENCONTRADA);
 		}
+
+		// Calcular el ganador de la jugada
+		int resultado = usuarioGana(eleccionPC, eleccionUsuario);
+		System.out.println("*** Resultado: " + resultado);
 
 		// cerramos lo que abrimos
 		s.close();
@@ -60,5 +68,13 @@ public class PiedraPapelTijeras {
 			}
 		}
 		return ERROR_NO_ENCONTRADA; // TODO tratar esto correctamente
+	}
+
+	private static int usuarioGana(int eleccionPC, int eleccionUsuario) {
+		int res = eleccionUsuario - eleccionPC;
+		if (res < 0) {
+			res += JUEGO.length; 
+		}
+		return res;
 	}
 }
