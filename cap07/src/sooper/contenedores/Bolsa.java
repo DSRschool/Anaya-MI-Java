@@ -1,5 +1,7 @@
 package sooper.contenedores;
 
+import sooper.enums.TipoContenedor;
+
 public class Bolsa extends Contenedor {
 	private int ancho;
 
@@ -9,8 +11,8 @@ public class Bolsa extends Contenedor {
 	}
 
 	@Override
-	public String getTipo() {
-		return "bolsa";
+	public TipoContenedor getTipo() {
+		return TipoContenedor.BOLSA;
 	}
 
 	@Override

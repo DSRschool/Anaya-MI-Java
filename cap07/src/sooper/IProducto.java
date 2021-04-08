@@ -1,5 +1,7 @@
 package sooper;
 
+import sooper.enums.Categoria;
+
 public interface IProducto {
 	
 	String getReferencia();
@@ -8,7 +10,7 @@ public interface IProducto {
 
 	int getVolumen();
 	
-	String getCategoria();
+	Categoria getCategoria();
 
 	boolean esCompatible(IProducto p);
 
