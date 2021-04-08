@@ -19,4 +19,6 @@ public interface IContenedor {
 	boolean meter(IProducto producto);
 
 	boolean resiste(IProducto producto);
+	
+	int getSuperficie();
 }
