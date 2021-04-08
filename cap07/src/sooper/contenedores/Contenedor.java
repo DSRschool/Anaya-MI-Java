@@ -6,13 +6,18 @@ import sooper.IContenedor;
 import sooper.IProducto;
 
 public abstract class Contenedor implements IContenedor {
-	
+
 	private String referencia;
 	private int alto;
 	private int resistencia;
-	
+
 	private Set<IProducto> productos;
-	
+
+	public Contenedor(String referencia, int alto) {
+		this.referencia = referencia;
+		this.alto = alto;
+	}
+
 	@Override
 	public String getReferencia() {
 		return referencia;
