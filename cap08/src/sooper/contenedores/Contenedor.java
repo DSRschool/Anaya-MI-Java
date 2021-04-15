@@ -1,5 +1,6 @@
 package sooper.contenedores;
 
+import java.util.HashSet;
 import java.util.Set;
 
 import sooper.IContenedor;
@@ -16,6 +17,7 @@ public abstract class Contenedor implements IContenedor {
 	public Contenedor(String referencia, int alto) {
 		this.referencia = referencia;
 		this.alto = alto;
+		productos = new HashSet<>();
 	}
 
 	@Override
@@ -54,5 +56,19 @@ public abstract class Contenedor implements IContenedor {
 	public boolean resiste(IProducto producto) {
 		// TODO Auto-generated method stub
 		return false;
+	}
+
+	public String toString() {
+		StringBuilder sb = new StringBuilder("Contenedor " + referencia + " [" 
+				+ getTipo() + "] (sup " + getSuperficie() + "cm2 - vol " 
+				+ getVolumen() + "cm3 - resistencia " + getResistencia() + " g).\n");
+		if (productos.isEmpty()) {
+			sb.append("\t\tvacío\n");
+		}
+		for (IProducto p : productos) {
+			sb.append("\t\t" + p + "\n");
+		}
+		sb.append("\t\t>> Disponible vol " + volumenDisponible() + "cm3");
+		return sb.toString();
 	}
 }
