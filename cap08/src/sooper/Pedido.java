@@ -36,7 +36,11 @@ public class Pedido implements IPedido {
 
 	@Override
 	public IContenedor addProducto(IProducto producto) {
-		// TODO Auto-generated method stub
+		for (IContenedor contenedor : contenedores) {
+			if (contenedor.meter(producto)) {
+				return contenedor;
+			}
+		}
 		return null;
 	}
 
