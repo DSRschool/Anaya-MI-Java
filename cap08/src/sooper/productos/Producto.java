@@ -40,4 +40,11 @@ public abstract class Producto implements IProducto {
 	public void meter(IContenedor contenedor) {
 		this.contenedor = contenedor;
 	}
+	
+	@Override
+	public String toString() {
+		return "Producto [categoria=" + getCategoria() + ", referencia=" 
+				+ referencia + ", peso=" + peso + ", volumen="
+				+ volumen + ", contenedor=" + contenedor.getReferencia() + "]";
+	}
 }
