@@ -14,9 +14,10 @@ public abstract class Contenedor implements IContenedor {
 
 	private Set<IProducto> productos;
 
-	public Contenedor(String referencia, int alto) {
+	public Contenedor(String referencia, int alto, int resistencia) {
 		this.referencia = referencia;
 		this.alto = alto;
+		this.resistencia = resistencia;
 		productos = new HashSet<>();
 	}
 
