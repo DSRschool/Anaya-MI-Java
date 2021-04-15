@@ -1,5 +1,6 @@
 package sooper.contenedores;
 
+import sooper.IProducto;
 import sooper.enums.TipoContenedor;
 
 public class Caja extends Contenedor {
@@ -20,5 +21,10 @@ public class Caja extends Contenedor {
 	@Override
 	public int getSuperficie() {
 		return ancho * largo;
+	}
+	
+	@Override
+	public boolean resiste(IProducto producto) {
+		return true;
 	}
 }

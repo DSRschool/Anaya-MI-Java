@@ -8,6 +8,7 @@ public abstract class Producto implements IProducto {
 	private String referencia;
 	private int peso;
 	private int volumen;
+	private IContenedor contenedor;
 
 	public Producto(String referencia, int peso, int volumen) {
 		this.referencia = referencia;
@@ -32,13 +33,11 @@ public abstract class Producto implements IProducto {
 
 	@Override
 	public boolean tengoEspacio(IContenedor contenedor) {
-		// TODO Apéndice de método generado automáticamente
-		return false;
+		return contenedor.volumenDisponible() > volumen;
 	}
 
 	@Override
 	public void meter(IContenedor contenedor) {
-		// TODO Apéndice de método generado automáticamente
-
+		this.contenedor = contenedor;
 	}
 }

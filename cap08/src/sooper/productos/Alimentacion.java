@@ -16,7 +16,6 @@ public class Alimentacion extends Producto {
 
 	@Override
 	public boolean esCompatible(IProducto p) {
-		// TODO Auto-generated method stub
-		return false;
+		return Categoria.ALIMENTACION.equals(p.getCategoria());
 	}
 }

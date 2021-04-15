@@ -32,8 +32,15 @@ public abstract class Contenedor implements IContenedor {
 
 	@Override
 	public int volumenDisponible() {
-		// TODO Auto-generated method stub
-		return 0;
+		return getVolumen() - volumenOcupado();
+	}
+
+	private int volumenOcupado() {
+		int res = 0;
+		for (IProducto p : productos) {
+			res += p.getVolumen();
+		}
+		return res;
 	}
 
 	@Override
@@ -65,8 +72,7 @@ public abstract class Contenedor implements IContenedor {
 
 	@Override
 	public boolean resiste(IProducto producto) {
-		// TODO Auto-generated method stub
-		return false;
+		return resistencia > producto.getPeso();
 	}
 
 	public String toString() {
