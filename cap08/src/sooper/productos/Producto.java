@@ -1,4 +1,7 @@
-package sooper;
+package sooper.productos;
+
+import sooper.IContenedor;
+import sooper.IProducto;
 
 public abstract class Producto implements IProducto {
 
