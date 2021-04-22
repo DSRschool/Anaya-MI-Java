@@ -13,6 +13,15 @@ public abstract class PlantaRaiz extends Planta {
 		familia = Familia.RAIZ;
 	}
 
+	@Override
+	public boolean tengoEspacio(IMaceta maceta) {
+		boolean profundidadOk = maceta.getProfundidad() > profunidadRequerida; 
+		if (!profundidadOk) {
+			System.out.println("--- Profundidad ko para " + getNombre() + " en " + maceta.getNombre()); 
+		}
+		return super.tengoEspacio(maceta) && profundidadOk;
+	}
+
 	public int getProfunidadRequerida() {
 		return profunidadRequerida;
 	}

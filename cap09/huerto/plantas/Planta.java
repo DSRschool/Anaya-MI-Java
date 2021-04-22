@@ -32,12 +32,29 @@ public abstract class Planta implements IPlanta {
 	
 	@Override
 	public boolean esCompatible(IPlanta planta) {
-		// TODO Auto-generated method stub
+		boolean compatible = true;
+		if (!especie.equals(planta.getEspecie())) {
+			if (!compatibles.contains(planta.getEspecie())) {
+				compatible &= !familia.equals(planta.getFamilia());
+				compatible &= !incompatibles.contains(planta.getEspecie());
+			}
+		}
+		return compatible;
 	}
 	
 	@Override
 	public boolean tengoEspacio(IMaceta maceta) {
-		// TODO Auto-generated method stub
+		boolean superficieOk = maceta.superficieDisponible() > getSuperficieRequerida();
+		if (!superficieOk) {
+			System.out.println("--- Superficie ko para " + getNombre() + " en " + maceta.getNombre()); 
+		}
+
+		boolean volumenOk = maceta.volumenDisponible() > getVolumenRequerido();
+		if (!volumenOk) {
+			System.out.println("--- Volumen ko para " + getNombre() + " en " + maceta.getNombre()); 
+		}
+		
+		return superficieOk && volumenOk;
 	}
 	
 	@Override

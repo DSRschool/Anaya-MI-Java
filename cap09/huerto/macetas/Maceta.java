@@ -67,8 +67,27 @@ public abstract class Maceta implements IMaceta {
 
 	@Override
 	public boolean plantar(IPlanta planta) {
-		// TODO Auto-generated method stub
-		return false;
+		System.out.println("--- PLANTANDO " + planta.getNombre() + " EN " + this.getNombre());
+
+		boolean compatiblesOk = true;
+		for (IPlanta p : plantas) {
+			boolean compatibleOk = planta.esCompatible(p);
+			if (!compatibleOk) {
+				System.out.println("--- " + p.getNombre() + " no es compatible con " + planta.getNombre());
+			}
+			compatiblesOk &= compatibleOk; 
+		}
+
+		boolean cabe = false;
+		if (compatiblesOk) {
+			planta.tengoEspacio(this);
+		}
+		
+		if (cabe) {
+			plantas.add(planta);
+			planta.plantar(this);
+		}
+		return cabe;
 	}
 
 	@Override
