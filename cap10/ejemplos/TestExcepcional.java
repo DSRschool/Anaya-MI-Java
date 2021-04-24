@@ -2,9 +2,23 @@ public class TestExcepcional {
 
     public static final String TECH_SIN_ARGUMENTOS = "Se esperaba al menos un argumento";
 
-    public static void main(String[] args) throws BusinessException {
-        int res = trataNumero(args);
-        System.out.println("El resultado es " + res);
+    public static void main(String[] args) {
+        try {
+            int res = trataNumero(args);
+            System.out.println("El resultado es " + res);
+        } catch (BusinessException be) {
+            System.out.println("===== ERROR FUNCIONAL =====");
+            System.out.println ("Se ha producido un error funcional: " + be);
+
+            switch (be.getErrorCode()) {
+                case EVEN:
+                    System.out.println("Prefiero números impares (1, 3, 5, ...)");
+                    break;
+                case NEGATIVE:
+                    System.out.println("Quiero números positivos");
+                    break;
+            }
+        }
     }
 
     private static int trataNumero(String[] args) throws BusinessException {
