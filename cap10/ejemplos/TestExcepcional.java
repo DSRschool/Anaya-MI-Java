@@ -1,6 +1,5 @@
 public class TestExcepcional {
-
-    public static final String TECH_SIN_ARGUMENTOS = "Se esperaba al menos un argumento";
+    private static final String TECH_SIN_ARGUMENTOS = "Se esperaba al menos 1 argumento";
 
     public static void main(String[] args) {
         try {
@@ -8,7 +7,7 @@ public class TestExcepcional {
             System.out.println("El resultado es " + res);
         } catch (BusinessException be) {
             System.out.println("===== ERROR FUNCIONAL =====");
-            System.out.println ("Se ha producido un error funcional: " + be);
+            System.out.println("Se ha producido un error funcional: " + be);
 
             switch (be.getErrorCode()) {
                 case EVEN:
@@ -31,7 +30,7 @@ public class TestExcepcional {
         return num * num;
     }
 
-    private static  void noQuieroPares(int n) throws BusinessException {
+    private static void noQuieroPares(int n) throws BusinessException {
         if (n % 2 == 0) {
             throw new BusinessException(BusinessException.ErrorCode.EVEN, "Valor " + n);
         }
