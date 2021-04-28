@@ -14,7 +14,7 @@ class CalculadoraTest {
 
 	@Test
 	void testResta() {
-		int res = Calculadora.resta(8, 3);
-		assertEquals(5, res);
+		int res = Calculadora.resta(0, 0);
+		assertEquals(0, res);
 	}
 }
