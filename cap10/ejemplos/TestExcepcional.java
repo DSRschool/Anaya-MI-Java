@@ -1,5 +1,6 @@
 public class TestExcepcional {
     private static final String TECH_SIN_ARGUMENTOS = "Se esperaba al menos 1 argumento";
+    private static final String TECH_MAL_FORMATO = "El primer argumento debe ser un número entero";
 
     public static void main(String[] args) {
         try {
@@ -27,10 +28,14 @@ public class TestExcepcional {
         if (args.length == 0) {
             throw new TechnicalException(TECH_SIN_ARGUMENTOS);
         }
-        int num = Integer.parseInt(args[0]);
-        noQuieroPares(num);
-        noQuieroNegativos(num);
-        return num * num;
+        try {
+            int num = Integer.parseInt(args[0]);
+            noQuieroPares(num);
+            noQuieroNegativos(num);
+            return num * num;
+        } catch (NumberFormatException nfe) {
+            throw new TechnicalException(TECH_MAL_FORMATO, nfe);
+        }
     }
 
     private static void noQuieroPares(int n) throws BusinessException {
