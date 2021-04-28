@@ -21,6 +21,8 @@ public class TestExcepcional {
         } catch (TechnicalException te) {
             System.err.println("***** ERROR TECNICO *****");
             System.err.println("Se ha producido un error técnico: " + te);
+        } finally {
+            System.out.println("¡Gracias por usar este programa!");
         }
     }
 
