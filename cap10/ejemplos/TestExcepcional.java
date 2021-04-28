@@ -17,6 +17,9 @@ public class TestExcepcional {
                     System.out.println("Quiero números positivos");
                     break;
             }
+        } catch (TechnicalException te) {
+            System.err.println("***** ERROR TECNICO *****");
+            System.err.println("Se ha producido un error técnico: " + te);
         }
     }
 
