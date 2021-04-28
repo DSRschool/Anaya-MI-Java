@@ -8,11 +8,13 @@ class CalculadoraTest {
 
 	@Test
 	void testSuma() {
-		fail("No implementado aun");
+		int res = Calculadora.suma(2, 3);
+		assertEquals(5, res);
 	}
 
 	@Test
 	void testResta() {
-		fail("No implementado aun");
+		int res = Calculadora.resta(8, 3);
+		assertEquals(5, res);
 	}
 }
