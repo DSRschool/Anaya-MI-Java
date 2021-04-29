@@ -1,0 +1,34 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <groupId>com.linkedin.learning</groupId>
+  <artifactId>moqueando</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+  <packaging>jar</packaging>
+
+  <name>moqueando</name>
+  <url>http://maven.apache.org</url>
+
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+  </properties>
+
+  <dependencies>
+	<!-- https://mvnrepository.com/artifact/org.junit/junit5-engine -->
+	<dependency>
+	    <groupId>org.junit</groupId>
+	    <artifactId>junit5-engine</artifactId>
+	    <version>5.0.0-ALPHA</version>
+	</dependency>
+	
+	<!-- https://mvnrepository.com/artifact/org.mockito/mockito-junit-jupiter -->
+	<dependency>
+	    <groupId>org.mockito</groupId>
+	    <artifactId>mockito-junit-jupiter</artifactId>
+	    <version>3.4.4</version>
+	    <scope>test</scope>
+	</dependency>
+	
+  </dependencies>
+</project>
