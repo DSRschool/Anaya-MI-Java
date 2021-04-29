@@ -20,7 +20,7 @@ public class ScoreTooLowException extends Exception {
 
     @Override
     public String getMessage() {
-        return "El usuario " + name + " tiene menos puntos (" +
-                score + ") de los requeridos.";
+        return "El usuario " + name + " tiene menos puntos ("
+                + score + ") de los requeridos.";
     }
 }
