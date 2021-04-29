@@ -17,4 +17,16 @@ class CalculadoraTest {
 		int res = Calculadora.resta(0, 0);
 		assertEquals(0, res);
 	}
+
+	@Test
+	void testMultiplica() {
+		int res = Calculadora.multiplica(2, 3);
+		assertEquals(6, res);
+	}
+
+	@Test
+	void testDivide() {
+		int res = Calculadora.divide(8, 2);
+		assertEquals(4, res);
+	}
 }
