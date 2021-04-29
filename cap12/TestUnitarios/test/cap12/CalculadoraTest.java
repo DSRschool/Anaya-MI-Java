@@ -199,7 +199,54 @@ class CalculadoraTest {
 	@Test
 	void testDivide7() {
 		int algo = 7;
-		int res = Calculadora.divide(algo, 0);
-		assertEquals(4, res);
+		assertThrows(ArithmeticException.class, () -> {
+			Calculadora.divide(algo, 0);
+		});
+	}
+
+	@Test
+	void testDivide7A() {
+		int algo = 7;
+		try {
+			int res = Calculadora.divide(algo, 0);
+			fail("Aquí no debería llegar");
+		} catch (ArithmeticException ae) {
+			assertTrue(true);
+		} catch (Throwable t) {
+			fail("No debería lanzar ningún throwable");
+		}
+	}
+	
+	@Test
+	void testDivide7B() {
+		int algo = 7;
+		assertThrows(IllegalArgumentException.class, () -> {
+			Calculadora.divideB(algo, 0);
+		});
+		try {
+			int res = Calculadora.divideB(algo, 0);
+			fail("Aquí no debería llegar");
+		} catch (IllegalArgumentException ae) {
+			assertTrue(true);
+		} catch (Throwable t) {
+			fail("No debería lanzar ningún throwable");
+		}
+	}
+
+	@Test
+	void testDivide7C() {
+		int algo = 7;
+		assertThrows(ExcepcionPropia.class, () -> {
+			Calculadora.divideC(algo, 0);
+		});
+		try {
+			int res = Calculadora.divideC(algo, 0);
+			fail("Aquí no debería llegar");
+		} catch (ExcepcionPropia ep) {
+			assertTrue(true);
+			assertEquals("No podemos dividir entre cero.", ep.getMessage());
+		} catch (Throwable t) {
+			fail("No debería lanzar ningún throwable");
+		}
 	}
 }

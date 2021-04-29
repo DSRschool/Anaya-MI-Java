@@ -17,4 +17,18 @@ public class Calculadora {
     {
     	return a / b;
 	}
+
+	public static int divideB(int a, int b) {
+		if (b == 0) {
+			throw new IllegalArgumentException("No podemos dividir entre cero.");
+		}
+		return a / b;
+	}
+
+	public static int divideC(int a, int b) throws ExcepcionPropia {
+		if (b == 0) {
+			throw new ExcepcionPropia("No podemos dividir entre cero.");
+		}
+		return a / b;
+	}
 }
