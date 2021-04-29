@@ -155,8 +155,51 @@ class CalculadoraTest {
 	}
 
 	@Test
-	void testDivide() {
+	void testDivide1() {
 		int res = Calculadora.divide(8, 2);
+		assertEquals(4, res);
+	}
+
+	@Test
+	void testDivide2() {
+		int algo = 7;
+		int res = Calculadora.divide(algo, 1);
+		assertEquals(algo, res);
+	}
+
+	@Test
+	void testDivide3() {
+		int a = 3;
+		int b = 5;
+		int res = Calculadora.divide(Calculadora.multiplica(a, b), b);
+		assertEquals(a, res);
+	}
+
+	@Test
+	void testDivide4() {
+		int a = 3;
+		int b = 5;
+		int res = Calculadora.divide(Calculadora.multiplica(a, b) + 1, b);
+		assertEquals(a, res);
+	}
+
+	@Test
+	void testDivide5() {
+		int algo = 7;
+		int res = Calculadora.divide(1, algo);
+		assertEquals(0, res);
+	}
+
+	@Test
+	void testDivide6() {
+		int res = Calculadora.divide(1, 1);
+		assertEquals(1, res);
+	}
+
+	@Test
+	void testDivide7() {
+		int algo = 7;
+		int res = Calculadora.divide(algo, 0);
 		assertEquals(4, res);
 	}
 }
