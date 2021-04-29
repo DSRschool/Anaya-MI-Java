@@ -95,7 +95,7 @@ public class RecordsManager {
         }
     }
 
-    private static void validateName(String name)
+    protected static void validateName(String name)
             throws PlayerNameTooShortException {
         /// (5) Validamos la longitud del nombre
         if (name.length() < MIN_NAME_LENGTH) {
@@ -103,7 +103,7 @@ public class RecordsManager {
         }
     }
 
-    private static void validateScore(String name, int score)
+    protected static void validateScore(String name, int score)
             throws ScoreTooLowException {
         /// (6) Validamos la puntuación mínima
         if (score < MIN_SCORE) {
@@ -111,7 +111,7 @@ public class RecordsManager {
         }
     }
 
-    private static String generateNewName(String name) {
+    protected static String generateNewName(String name) {
         int randomSize = MIN_NAME_LENGTH - name.length();
         for (int i = 0; i < randomSize; i ++) {
             int randomNum = r.nextInt(10);
