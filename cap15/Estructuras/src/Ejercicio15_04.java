@@ -1,6 +1,6 @@
 import java.util.Random;
 
-public class Ejercicio15_04a {
+public class Ejercicio15_04 {
 	private static final Random RND = new Random();
 	private static final int NUM_LETRAS = 26;
 	private static final char PRIMERA_LETRA = 'a';
