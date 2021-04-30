@@ -1,5 +1,7 @@
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Random;
 
 public class Ejercicio15_04 {
@@ -10,7 +12,25 @@ public class Ejercicio15_04 {
 
 	public static void main(String[] args) {
 		List<String> lista = generaLista();
-		System.out.println(lista);
+		Map<Character, Integer> mapa = cuentaLetras(lista);
+		System.out.println(mapa);
+	}
+	
+	private static Map<Character, Integer> cuentaLetras(List<String> lista) {
+		Map<Character, Integer> mapa = new HashMap<>();
+		for (String silaba : lista) {
+			Character c = getPrimero(silaba);
+			Integer cont = mapa.get(c);
+			if (cont == null) {
+				cont = 0;
+			}
+			mapa.put(c, ++cont);
+		}
+		return mapa;
+	}
+
+	private static Character getPrimero(String silaba) {
+		return silaba.charAt(0);
 	}
 
 	private static List<String> generaLista() {
