@@ -1,7 +1,9 @@
+import java.text.MessageFormat;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Map.Entry;
 import java.util.Random;
 
 public class Ejercicio15_04 {
@@ -13,7 +15,16 @@ public class Ejercicio15_04 {
 	public static void main(String[] args) {
 		List<String> lista = generaLista();
 		Map<Character, Integer> mapa = cuentaLetras(lista);
-		System.out.println(mapa);
+		pintaMapa(mapa);
+	}
+	
+	private static void pintaMapa(Map<Character, Integer> mapa) {
+		StringBuilder sb = new StringBuilder();
+		for (Entry<Character, Integer> entry : mapa.entrySet()) {
+			String m = MessageFormat.format("{0} ha salido {1} veces\n", entry.getKey(), entry.getValue());
+			sb.append(m);
+		}
+		System.out.println(sb.toString());
 	}
 	
 	private static Map<Character, Integer> cuentaLetras(List<String> lista) {
