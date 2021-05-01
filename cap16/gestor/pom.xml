@@ -15,6 +15,20 @@
   </properties>
 
   <dependencies>
+    <!-- https://mvnrepository.com/artifact/mysql/mysql-connector-java -->
+  	<dependency>
+	    <groupId>mysql</groupId>
+	    <artifactId>mysql-connector-java</artifactId>
+	    <version>8.0.19</version>
+	</dependency>
+	
+	<dependency>
+	  <groupId>org.hibernate</groupId>
+	  <artifactId>hibernate-agroal</artifactId>
+	  <version>5.4.16.Final</version>
+	  <type>pom</type>
+	</dependency>
+	
     <dependency>
       <groupId>junit</groupId>
       <artifactId>junit</artifactId>
