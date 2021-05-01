@@ -15,10 +15,6 @@ public abstract class AbstractDao<T> implements Dao<T> {
 	private EntityManager entityManager = EntityManagerUtil.getEntityManager();
 	private Class<T> clazz;
 	
-	public EntityManager getEntityManager() {
-		return entityManager;
-	}
-	
 	public Optional<T> get(long id) {
 		return Optional.ofNullable(entityManager.find(clazz, id));
 	}
