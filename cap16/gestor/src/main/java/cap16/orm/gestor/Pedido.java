@@ -1,6 +1,6 @@
 package cap16.orm.gestor;
 
-import java.util.Date;
+import java.time.LocalDateTime;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -19,12 +19,12 @@ public class Pedido {
 	@Column(name = "referencia")
 	private String referencia;
 	@Column(name = "fecha")
-	private Date fecha;
+	private LocalDateTime fecha;
 
 	public Pedido() {
 	}
 
-	public Pedido(String referencia, Date fecha) {
+	public Pedido(String referencia, LocalDateTime fecha) {
 		this.referencia = referencia;
 		this.fecha = fecha;
 	}
@@ -45,11 +45,11 @@ public class Pedido {
 		this.referencia = referencia;
 	}
 
-	public Date getFecha() {
+	public LocalDateTime getFecha() {
 		return fecha;
 	}
 
-	public void setFecha(Date fecha) 
+	public void setFecha(LocalDateTime fecha) 
 	{ 
 	}
 
