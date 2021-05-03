@@ -11,7 +11,7 @@ public class PedidoDao extends AbstractDao<Pedido> {
 	}
 
 	public Pedido pedidoMasReciente() {
-		String qlString = "FROM " + Pedido.class.getName() + " WHERE fecha < now() and id > 100 order by fecha desc";
+		String qlString = "FROM " + Pedido.class.getName() + " WHERE fecha < now() order by fecha desc";
 		Query query = getEntityManager().createQuery(qlString).setMaxResults(1);
 		return (Pedido) query.getSingleResult();
 	}
