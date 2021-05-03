@@ -59,7 +59,7 @@ public class Producto {
 		return pedidos;
 	}
 	
-	public void setPedidos(Pedido pedidos) {
+	public void setPedidos(Set<Pedido> pedidos) {
 		this.pedidos = pedidos
 	}
 

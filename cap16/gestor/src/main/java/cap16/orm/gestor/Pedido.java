@@ -9,6 +9,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
@@ -31,6 +32,9 @@ public class Pedido {
 	@OneToOne(cascade = CascadeType.ALL)
 	@JoinColumn
 	private Factura factura;
+
+	@ManyToMany(mappedBy = "pedidos", cascade = CascadeType.ALL)
+	private Set<Producto> productos = new HashSet<>();
 
 	public Pedido() {
 	}
@@ -78,6 +82,14 @@ public class Pedido {
 
 	public void setFactura(Factura factura) {
 		this.factura = factura;
+	}
+
+	public Set<Producto> getProductos() {
+		return productos;
+	}
+
+	public void setProductos(Set<Producto> productos) {
+		this.productos = productos;
 	}
 
 	@Override
