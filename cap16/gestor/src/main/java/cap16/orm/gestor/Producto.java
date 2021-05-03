@@ -59,8 +59,11 @@ public class Producto {
 		return pedidos;
 	}
 	
-	public void setPedidos(Set<Pedido> pedidos) {
-		this.pedidos = pedidos
+	public void addPedido(Pedido pedido) {
+   		pedidos.add(pedido);
+   		if (!pedido.getProductos().contains(this)) {
+			pedido.addProducto(this);
+		}
 	}
 
 	@Override
