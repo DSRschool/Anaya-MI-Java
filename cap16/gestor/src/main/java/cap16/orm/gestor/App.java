@@ -21,7 +21,11 @@ public class App
 		List<Pedido> pedidos = pedidoDao.getAll();
 		System.out.println("*** Pedidos: " + pedidos);
 
-		Pedido masReciente = pedidoDao.pedidoMasReciente();
-		System.out.println("*** Pedido más reciente: " + masReciente);
+		try {
+			Pedido masReciente = pedidoDao.pedidoMasReciente();
+			System.out.println("*** Pedido más reciente: " + masReciente);
+		} catch (NoResultException nre) {
+			System.out.println("No tienes ningún pedido reciente.");
+		}
     }
 }
