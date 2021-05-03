@@ -24,5 +24,8 @@ public class GestorPedidos {
 		Factura factura = vueltaAlCole.generaFactura();
 		
 		System.out.println("Pedido:\n" + vueltaAlCole);
+
+		pedidoDao.update(vueltaAlCole);
+		System.out.println("Pedido actualizado:\n" + vueltaAlCole);
 	}
 }
