@@ -24,7 +24,7 @@ public class Pedido {
 	public Pedido() {
 	}
 	
-	public Pedido(String referencia, LocalDateTime fecha) {
+	public Pedido(String referencia, Date fecha) {
 		this.referencia = referencia;
 		this.fecha = fecha;
 	}
