@@ -76,6 +76,12 @@ public class Pedido {
 		this.albaranes = albaranes;
 	}
 
+	public Albaran generaAlbaran() {
+		Albaran albaran = new Albaran(this);
+		albaranes.add(albaran);
+		return albaran;
+	}
+
 	public Factura getFactura() {
 		return factura;
 	}
@@ -84,12 +90,21 @@ public class Pedido {
 		this.factura = factura;
 	}
 
+	public Factura generaFactura() {
+		factura = new Factura(this);
+		return factura;
+	}
+
 	public Set<Producto> getProductos() {
 		return productos;
 	}
 
 	public void setProductos(Set<Producto> productos) {
 		this.productos = productos;
+	}
+
+	public void addProducto(Producto producto) {
+		productos.add(producto);
 	}
 
 	@Override
