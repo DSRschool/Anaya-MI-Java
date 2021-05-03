@@ -18,6 +18,9 @@ public class App
 		Pedido pedido2 = new Pedido("pedFut", LocalDateTime.now().plus(2, ChronoUnit.DAYS));
 		pedidoDao.save(pedido2);
 
+		Pedido pedido3 = new Pedido("pedPas", LocalDateTime.now().minus(1, ChronoUnit.WEEKS));
+		pedidoDao.save(pedido3);
+
 		List<Pedido> pedidos = pedidoDao.getAll();
 		System.out.println("*** Pedidos: " + pedidos);
 
@@ -27,5 +30,8 @@ public class App
 		} catch (NoResultException nre) {
 			System.out.println("No tienes ningún pedido reciente.");
 		}
+
+		List<Pedido> pedidosSemanaPasada = pedidoDao.pedidosSemanaPasada();
+		System.out.println("*** Pedidos de la semana pasada: " + pedidosSemanaPasada);
     }
 }
