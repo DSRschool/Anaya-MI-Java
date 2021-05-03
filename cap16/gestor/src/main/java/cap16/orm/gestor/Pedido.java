@@ -3,6 +3,7 @@ package cap16.orm.gestor;
 import java.time.LocalDateTime;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -26,14 +27,14 @@ public class Pedido {
 	@Column(name = "fecha")
 	private LocalDateTime fecha;
 
-	@OneToMany(mappedBy = "pedido")
+	@OneToMany(mappedBy = "pedido", cascade = CascadeType.ALL)
 	private List<Albaran> albaranes;
 	
-	@OneToOne
+	@OneToOne(cascade = CascadeType.ALL)
 	@JoinColumn
 	private Factura factura;
 
-	@ManyToMany(mappedBy = "pedidos")
+	@ManyToMany(mappedBy = "pedidos", cascade = CascadeType.ALL)
 	private Set<Producto> productos = new HashSet<>();
 
 	public Pedido() {
