@@ -19,7 +19,11 @@ public abstract class AbstractDao<T> implements Dao<T> {
 		return entityManager;
 	}
 	
-	public Optional<T> get(long id) {
+	public Optional<T> get(int id) {
+		return Optional.ofNullable(entityManager.find(clazz, id));
+	}
+
+	public Optional<T> get(Object id) {
 		return Optional.ofNullable(entityManager.find(clazz, id));
 	}
 

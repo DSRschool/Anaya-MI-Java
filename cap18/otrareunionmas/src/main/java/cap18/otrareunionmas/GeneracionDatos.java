@@ -13,7 +13,9 @@ import cap18.otrareunionmas.dominio.Sala;
 
 public class GeneracionDatos 
 {
-    public static void main( String[] args )
+    private static final int HORA_INI = 10;
+
+	public static void main( String[] args )
     {
         System.out.println( "Otra reunión más - Generación de datos" );
 		// DAOs
@@ -42,6 +44,14 @@ public class GeneracionDatos
 		Reunion r2 = new Reunion(LocalDateTime.now().plus(2, ChronoUnit.DAYS), "Reunión de pasado mañana");
 		Reunion r3 = new Reunion(LocalDateTime.now().plus(1, ChronoUnit.DAYS), "Reunión de mañana");
 		Reunion r4 = new Reunion(LocalDateTime.now().minus(1, ChronoUnit.DAYS), "Reunión de ayer");
+		
+		// reuniones de hoy en sala 101
+		LocalDateTime hoy = LocalDateTime.now().withHour(10);
+		for (int i = 0; i < 5; i ++) {
+			Reunion r = new Reunion(hoy.plusHours(i), "Reunión de las " + (HORA_INI + i));
+			r.setSala(s101);
+			reunionDao.save(r);
+		}
 
 		r0.addParticipante(marta);
 		r0.setSala(s099);
