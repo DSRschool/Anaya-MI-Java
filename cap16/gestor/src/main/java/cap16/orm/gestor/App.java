@@ -1,13 +1,15 @@
 package cap16.orm.gestor;
 
-/**
- * Hello world!
- *
- */
+import java.util.List;
+
+import cap16.orm.gestor.dao.PedidoDao;
+
 public class App 
 {
     public static void main( String[] args )
     {
-        System.out.println( "Hello World!" );
+        PedidoDao pedidoDao = new PedidoDao();
+		List<Pedido> pedidos = pedidoDao.getAll();
+		System.out.println("*** Pedidos: " + pedidos);
     }
 }
