@@ -21,6 +21,9 @@ public class Pedido {
 	@Column(name = "fecha")
 	private Date fecha;
 
+	public Pedido() {
+	}
+
 	public Pedido(String referencia, Date fecha) {
 		this.referencia = referencia;
 		this.fecha = fecha;
