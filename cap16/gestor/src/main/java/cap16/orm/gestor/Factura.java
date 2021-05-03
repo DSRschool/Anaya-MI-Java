@@ -4,6 +4,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 
 @Entity
 public class Factura {
@@ -12,6 +13,18 @@ public class Factura {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 	private String numero;
+	
+	@OneToOne(mappedBy = "factura")
+	private Pedido pedido;
+	
+	public Factura() {
+		
+	}
+	
+	public Factura(Pedido pedido) {
+		this.numero = PREFIJO + pedido.getReferencia();
+		this.pedido = pedido;
+	}
 
 	public int getId() {
 		return id;
@@ -27,6 +40,14 @@ public class Factura {
 
 	public void setNumero(String numero) {
 		this.numero = numero;
+	}
+
+	public Pedido getPedido() {
+		return pedido;
+	}
+
+	public void setPedido(Pedido pedido) {
+		this.pedido = pedido;
 	}
 
 	@Override
