@@ -1,7 +1,10 @@
 package cap16.orm.gestor;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -28,7 +31,7 @@ public class Pedido {
 	private LocalDateTime fecha;
 
 	@OneToMany(mappedBy = "pedido", cascade = CascadeType.ALL)
-	private List<Albaran> albaranes;
+	private List<Albaran> albaranes = new ArrayList<>();
 	
 	@OneToOne(cascade = CascadeType.ALL)
 	@JoinColumn
