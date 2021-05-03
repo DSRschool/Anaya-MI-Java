@@ -3,9 +3,11 @@ package cap16.orm.gestor;
 import java.time.LocalDateTime;
 
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -20,6 +22,9 @@ public class Albaran {
 	private LocalDateTime fechaEmision;
 	private LocalDateTime fechaRecepcion;
 	
+	@ManyToOne(fetch = FetchType.LAZY)
+	private Pedido pedido;
+
 	public Albaran() {
 		
 	}
@@ -59,6 +64,14 @@ public class Albaran {
 
 	public void setFechaRecepcion(LocalDateTime fechaRecepcion) {
 		this.fechaRecepcion = fechaRecepcion;
+	}
+
+	public Pedido getPedido() {
+		return pedido;
+	}
+
+	public void setPedido(Pedido pedido) {
+		this.pedido = pedido;
 	}
 
 	@Override

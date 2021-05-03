@@ -1,12 +1,14 @@
 package cap16.orm.gestor;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -20,6 +22,9 @@ public class Pedido {
 	private String referencia;
 	@Column(name = "fecha")
 	private LocalDateTime fecha;
+
+	@OneToMany(mappedBy = "pedido")
+	private List<Albaran> albaranes;
 
 	public Pedido() {
 	}
@@ -53,6 +58,14 @@ public class Pedido {
 	{ 
 	}
 
+	public List<Albaran> getAlbaranes() {
+		return albaranes;
+	}
+
+	public void setAlbaranes(List<Albaran> albaranes) {
+		this.albaranes = albaranes;
+	}
+	
 	@Override
 	public String toString() {
 		return "Pedido [id=" + id + ", referencia=" + referencia + ", fecha=" + fecha + "]";
