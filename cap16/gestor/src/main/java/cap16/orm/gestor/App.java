@@ -9,6 +9,12 @@ public class App
     public static void main( String[] args )
     {
         PedidoDao pedidoDao = new PedidoDao();
+
+		Pedido pedido = new Pedido();
+		pedido.setFecha(new Date());
+		pedido.setReferencia("001");
+		pedidoDao.save(pedido);
+   
 		List<Pedido> pedidos = pedidoDao.getAll();
 		System.out.println("*** Pedidos: " + pedidos);
     }
