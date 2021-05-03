@@ -21,6 +21,11 @@ public class Pedido {
 	@Column(name = "fecha")
 	private Date fecha;
 
+	public Pedido(String referencia, LocalDateTime fecha) {
+		this.referencia = referencia;
+		this.fecha = fecha;
+	}
+
 	public int getId() {
 		return id;
 	}
@@ -43,5 +48,10 @@ public class Pedido {
 
 	public void setFecha(Date fecha) 
 	{ 
+	}
+
+	@Override
+	public String toString() {
+		return "Pedido [id=" + id + ", referencia=" + referencia + ", fecha=" + fecha + "]";
 	}
 }
