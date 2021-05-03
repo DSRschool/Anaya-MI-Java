@@ -29,11 +29,11 @@ public class Pedido {
 	@OneToMany(mappedBy = "pedido")
 	private List<Albaran> albaranes;
 	
-	@OneToOne(cascade = CascadeType.ALL)
+	@OneToOne
 	@JoinColumn
 	private Factura factura;
 
-	@ManyToMany(mappedBy = "pedidos", cascade = CascadeType.ALL)
+	@ManyToMany(mappedBy = "pedidos")
 	private Set<Producto> productos = new HashSet<>();
 
 	public Pedido() {
