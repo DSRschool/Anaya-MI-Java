@@ -8,11 +8,6 @@ public class OrdenEjecucion {
 	
 	static String res = "";
 	
-	// 0 - Si no se producen excepciones: A-B-C-G-H-I
-	// 1 - Si metodoUno lanza AException: A-B-D-G-H-I
-	// 2 - Si metodoUno lanza BException: A-B-E-G-H
-	// 3 - Si metodoDos lanza algo: A-B-C-G
-	// 4 - Si metodoUno lanza AException y metodoDos lanza algo: A-B-D-G
 	public static void main(String[] args) {
 		for (int i = 0; i < CASOS.length; i ++) {
 			res = "";
@@ -26,7 +21,7 @@ public class OrdenEjecucion {
 	}
 	
 	public static void ordename(int caso) throws BException {
-		res += "A";
+		res = "A";
 		try {
 			res += "B";
 			metodoUno(caso);
@@ -46,25 +41,11 @@ public class OrdenEjecucion {
 	}
 
 	private static void metodoUno(int caso) throws AException, BException {
-		switch (caso) {
-		case 1:
-		case 4:
-			throw new AException();
-		case 2:
-			throw new BException();
-		default:
-			// todo bien
-		}
+		// tu código aquí
 	}
 
 	private static void metodoDos(int caso) {
-		switch (caso) {
-		case 3:
-		case 4:
-			throw new RuntimeException();
-		default:
-			// todo bien
-		}		
+		// tu código aquí
 	}
 }
 
