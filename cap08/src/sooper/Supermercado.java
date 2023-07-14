@@ -36,7 +36,7 @@ public class Supermercado {
 			miPedido.addContenedor(caja);
 		}
 		for (int i = 0; i < 5; i++) {
-			IContenedor bolsa = new Bolsa("B12" + i, 3000, 30, 25);
+			IContenedor bolsa = new Bolsa("B12" + i, 30, 25, 3000);
 			miPedido.addContenedor(bolsa);
 		}
 		for (int i = 0; i < 12; i++) {
