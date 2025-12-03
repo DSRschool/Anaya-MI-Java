@@ -20,13 +20,9 @@ public class Pedido implements IPedido {
 
 	@Override
 	public Set<IProducto> getProductos() {
-		Set<IProducto> productos = null;
+		Set<IProducto> productos = new HashSet<>();
 		for (IContenedor c : contenedores) {
-			if (productos == null) {
-				productos = c.getProductos();
-			} else {
-				productos.addAll(c.getProductos());
-			}
+			productos.addAll(c.getProductos());
 		}
 		return productos;
 	}
